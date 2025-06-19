@@ -5,6 +5,7 @@ import DashboardHeader from '@/components/DashboardHeader';
 import DashboardStats from '@/components/DashboardStats';
 import GoalsSection from '@/components/GoalsSection';
 import AddGoalModal from '@/components/AddGoalModal';
+import AddContributionModal from '@/components/AddContributionModal';
 import { Goal, Contribution, ExchangeRate } from '@/types';
 import { fetchExchangeRate } from '@/utils/exchangeRate';
 import { formatCurrency } from '@/utils/calculations';
@@ -158,6 +159,22 @@ const Index = () => {
         isOpen={isAddGoalOpen}
         onClose={() => setIsAddGoalOpen(false)}
         onAddGoal={addGoal}
+      />
+
+      <AddContributionModal
+        isOpen={isAddContributionOpen}
+        onClose={() => {
+          setIsAddContributionOpen(false);
+          setSelectedGoalId(null);
+        }}
+        onAddContribution={(contribution) => {
+          if (selectedGoalId) {
+            addContribution(selectedGoalId, contribution);
+          }
+        }}
+        goalName={selectedGoal?.name || ''}
+        goalCurrency={selectedGoal?.currency || 'USD'}
+        exchangeRate={exchangeRate}
       />
 
     </div>
