@@ -4,6 +4,7 @@ import { useToast } from '@/hooks/use-toast';
 import DashboardHeader from '@/components/DashboardHeader';
 import DashboardStats from '@/components/DashboardStats';
 import GoalsSection from '@/components/GoalsSection';
+import AddGoalModal from '@/components/AddGoalModal';
 import { Goal, Contribution, ExchangeRate } from '@/types';
 import { fetchExchangeRate } from '@/utils/exchangeRate';
 import { formatCurrency } from '@/utils/calculations';
@@ -152,6 +153,12 @@ const Index = () => {
           onDeleteGoal={deleteGoal}
         />
       </div>
+
+      <AddGoalModal
+        isOpen={isAddGoalOpen}
+        onClose={() => setIsAddGoalOpen(false)}
+        onAddGoal={addGoal}
+      />
 
     </div>
   );
