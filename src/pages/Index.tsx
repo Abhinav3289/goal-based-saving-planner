@@ -2,7 +2,8 @@
 import { useState, useEffect } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import DashboardHeader from '@/components/DashboardHeader';
-
+import DashboardStats from '@/components/DashboardStats';
+import GoalsSection from '@/components/GoalsSection';
 import { Goal, Contribution, ExchangeRate } from '@/types';
 import { fetchExchangeRate } from '@/utils/exchangeRate';
 import { formatCurrency } from '@/utils/calculations';
@@ -129,6 +130,28 @@ const Index = () => {
         onRefreshRate={fetchRate}
         isLoadingRate={isLoadingRate}
       />
+
+      <div className="max-w-7xl mx-auto px-4 py-8">
+        <DashboardStats
+          totalTarget={totalTarget}
+          totalSaved={totalSaved}
+          overallProgress={overallProgress}
+          dashboardCurrency={dashboardCurrency}
+          equivalentTarget={equivalentTarget}
+          equivalentSaved={equivalentSaved}
+        />
+
+        <GoalsSection
+          goals={goals}
+          exchangeRate={exchangeRate}
+          onAddGoal={() => setIsAddGoalOpen(true)}
+          onAddContribution={(goalId) => {
+            setSelectedGoalId(goalId);
+            setIsAddContributionOpen(true);
+          }}
+          onDeleteGoal={deleteGoal}
+        />
+      </div>
 
     </div>
   );
