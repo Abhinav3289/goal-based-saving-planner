@@ -1,4 +1,4 @@
-
+live demo link: https://goal-based-saving-planner.vercel.app/
 **Use your preferred IDE**
 
 If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
@@ -29,4 +29,21 @@ This project is built with:
 - TypeScript
 - React
 - Tailwind CSS
+
+
+Highlights :
+Add, view, and delete savings goals in INR or USD
+
+Log dated contributions with form validation (no negatives, max decimal places)
+
+Live INR to USD exchange rate fetch with manual “Refresh Rates” and timestamp
+
+Dashboard overview showing separate and combined totals for each currency
+
+Time‑series charts (Recharts) with cumulative savings and projections
+
+PDF export of a monthly statement (jsPDF + autotable)
+
+Clean React + TypeScript codebase, modular component structure, Tailwind CSS styling, and responsive layout.
+
 
